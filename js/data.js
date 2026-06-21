@@ -320,7 +320,7 @@ const GALLERY_DATA = [
    =================================================== */
 const BUSINESS_CONFIG = {
   name:       'Bakso Mantap Jaya',
-  wa_number:  '6281234567890',   // format tanpa +
+  wa_number:  '6281336307404',   // format tanpa +
   instagram:  'baksomantapjaya',
   tiktok:     'bakso.mantap.jaya',
   address:    'Jl. Contoh Raya No 1, Blora',
