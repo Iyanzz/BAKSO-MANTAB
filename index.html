@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bakso Mantap Jaya — Bakso & Mie Ayam Asli</title>
+  <meta name="description" content="Bakso & Mie Ayam Asli khas Blora. Pesan delivery ke RT/RW Anda atau booking meja untuk makan di tempat. Harga terjangkau, cita rasa terjamin." />
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" />
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ===== STICKY NAVBAR ===== -->
+  <header id="navbar">
+    <div class="nav-container">
+      <a href="#hero" class="nav-brand">
+        <span class="brand-icon">🍜</span>
+        <span class="brand-text">Bakso <strong>Mantap Jaya</strong></span>
+      </a>
+      <nav class="nav-links" id="navLinks">
+        <a href="#menu">Menu</a>
+        <a href="#galeri">Galeri</a>
+        <a href="#area-delivery">Area Delivery</a>
+        <a href="#booking">Booking Meja</a>
+        <a href="#lokasi">Lokasi</a>
+        <a href="#keranjang" class="btn-nav-cart" id="navCartBtn">
+          <i class="fas fa-shopping-cart"></i>
+          <span class="cart-badge" id="cartBadge">0</span>
+        </a>
+      </nav>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ===== HERO ===== -->
+    <section id="hero">
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <span class="hero-badge">🌶️ Asli &amp; Segar Setiap Hari</span>
+        <h1>Bakso &amp; Mie Ayam<br /><em>yang Bikin Nagih</em></h1>
+        <p class="hero-tagline">Kuah gurih meresap, bakso kenyal, mie ayam lembut —<br />bisa diantar ke rumah atau makan di tempat.</p>
+        <div class="hero-cta-group">
+          <a href="#keranjang" class="btn btn-primary">
+            <i class="fas fa-motorcycle"></i> Pesan Delivery
+          </a>
+          <a href="#booking" class="btn btn-secondary">
+            <i class="fas fa-chair"></i> Booking Meja
+          </a>
+          <a href="#menu" class="btn btn-outline">
+            <i class="fas fa-utensils"></i> Lihat Menu
+          </a>
+        </div>
+      </div>
+      <div class="hero-scroll-hint">
+        <span>Scroll ke bawah</span>
+        <i class="fas fa-chevron-down bounce"></i>
+      </div>
+    </section>
+
+    <!-- ===== STATS BAR ===== -->
+    <div class="stats-bar">
+      <div class="stat-item">
+        <i class="fas fa-fire-alt"></i>
+        <div><strong>Buka Setiap Hari</strong><span>Senin – Minggu</span></div>
+      </div>
+      <div class="stat-item">
+        <i class="fas fa-motorcycle"></i>
+        <div><strong>Delivery Lokal</strong><span>Area RT/RW Sekitar</span></div>
+      </div>
+      <div class="stat-item">
+        <i class="fas fa-star"></i>
+        <div><strong>Menu Favorit</strong><span>Bakso &amp; Mie Ayam</span></div>
+      </div>
+      <div class="stat-item">
+        <i class="fas fa-whatsapp"></i>
+        <div><strong>Order via WA</strong><span>Cepat &amp; Mudah</span></div>
+      </div>
+    </div>
+
+    <!-- ===== GALERI INTERIOR ===== -->
+    <section id="galeri" class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge">📸 Suasana Tempat</span>
+          <h2>Nyaman untuk Makan Bersama</h2>
+          <p>Tempat yang bersih, nyaman, dan hangat. Cocok untuk makan bareng keluarga, teman, atau santai sendiri.</p>
+        </div>
+        <div class="gallery-grid" id="galleryGrid">
+          <!-- Item galeri dirender oleh JS -->
+        </div>
+        <!-- Lightbox -->
+        <div class="lightbox" id="lightbox">
+          <button class="lightbox-close" id="lightboxClose"><i class="fas fa-times"></i></button>
+          <button class="lightbox-prev" id="lightboxPrev"><i class="fas fa-chevron-left"></i></button>
+          <button class="lightbox-next" id="lightboxNext"><i class="fas fa-chevron-right"></i></button>
+          <div class="lightbox-content">
+            <img src="" alt="" id="lightboxImg" />
+            <p id="lightboxCaption"></p>
+          </div>
+        </div>
+        <div class="lightbox-backdrop" id="lightboxBackdrop"></div>
+      </div>
+    </section>
+
+    <!-- ===== MENU & HARGA ===== -->
+    <section id="menu" class="section section-warm">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge">🍜 Menu Kami</span>
+          <h2>Pilihan Menu Lengkap</h2>
+          <p>Semua dibuat segar setiap hari. Tambahkan ke keranjang lalu pesan via WhatsApp!</p>
+        </div>
+
+        <!-- Tab Kategori Menu -->
+        <div class="menu-tabs" id="menuTabs">
+          <button class="tab-btn active" data-cat="makanan">🍲 Makanan</button>
+          <button class="tab-btn" data-cat="tambahan">➕ Tambahan</button>
+          <button class="tab-btn" data-cat="minuman">🥤 Minuman</button>
+        </div>
+
+        <div class="menu-grid" id="menuGrid">
+          <!-- Dirender oleh JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== KERANJANG & CHECKOUT ===== -->
+    <section id="keranjang" class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge">🛒 Pesanan Kamu</span>
+          <h2>Keranjang &amp; Checkout</h2>
+          <p>Cek kembali pesananmu, pilih metode pengiriman, lalu kirim via WhatsApp.</p>
+        </div>
+
+        <div class="checkout-layout">
+          <!-- Keranjang Kiri -->
+          <div class="cart-panel">
+            <div class="cart-empty" id="cartEmpty">
+              <i class="fas fa-shopping-basket"></i>
+              <p>Keranjangmu kosong.</p>
+              <a href="#menu" class="btn btn-primary btn-sm">Lihat Menu</a>
+            </div>
+            <div class="cart-items" id="cartItems" style="display:none;">
+              <div class="cart-list" id="cartList">
+                <!-- Dirender oleh JS -->
+              </div>
+              <div class="cart-clear-row">
+                <button class="btn btn-ghost btn-sm" id="clearCartBtn">
+                  <i class="fas fa-trash"></i> Kosongkan Keranjang
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Form Checkout Kanan -->
+          <div class="checkout-panel" id="checkoutPanel">
+            <!-- Metode -->
+            <div class="form-group">
+              <label class="form-label">Metode Pengiriman</label>
+              <div class="method-toggle">
+                <button class="method-btn active" data-method="delivery" id="btnDelivery">
+                  <i class="fas fa-motorcycle"></i> Delivery
+                </button>
+                <button class="method-btn" data-method="pickup" id="btnPickup">
+                  <i class="fas fa-store"></i> Ambil di Toko
+                </button>
+              </div>
+            </div>
+
+            <!-- Area Delivery (hanya tampil jika delivery) -->
+            <div class="form-group" id="deliveryAreaGroup">
+              <label class="form-label" for="selectArea">Pilih Area RT/RW <span class="required">*</span></label>
+              <select class="form-control" id="selectArea">
+                <option value="">-- Pilih RT/RW Anda --</option>
+              </select>
+              <div class="ongkir-info" id="ongkirInfo" style="display:none;">
+                <i class="fas fa-motorcycle"></i>
+                Ongkos kirim ke <strong id="ongkirArea"></strong>: 
+                <strong id="ongkirPrice"></strong>
+              </div>
+              <div class="area-not-found" id="areaNotFound" style="display:none;">
+                <i class="fas fa-exclamation-triangle"></i>
+                Maaf, area Anda belum kami layani. Silakan hubungi toko langsung.
+                <a href="https://wa.me/6281234567890?text=Halo%2C%20saya%20ingin%20tanya%20area%20delivery" 
+                   target="_blank" class="btn btn-whatsapp btn-sm">
+                  <i class="fab fa-whatsapp"></i> Hubungi Toko
+                </a>
+              </div>
+            </div>
+
+            <!-- Info Pickup -->
+            <div class="form-group pickup-info" id="pickupInfo" style="display:none;">
+              <div class="info-box">
+                <i class="fas fa-store"></i>
+                <div>
+                  <strong>Ambil di Toko</strong>
+                  <p>Jl. Contoh Raya No 1, Blora<br />Estimasi siap: 15–20 menit setelah konfirmasi.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Data Pemesan -->
+            <div class="form-group">
+              <label class="form-label" for="orderName">Nama Pemesan <span class="required">*</span></label>
+              <input type="text" class="form-control" id="orderName" placeholder="Nama lengkap kamu" />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="orderPhone">No. HP / WhatsApp <span class="required">*</span></label>
+              <input type="tel" class="form-control" id="orderPhone" placeholder="08xxxxxxxxxx" />
+            </div>
+            <div class="form-group" id="addressGroup">
+              <label class="form-label" for="orderAddress">Alamat Lengkap <span class="required">*</span></label>
+              <textarea class="form-control" id="orderAddress" rows="2" placeholder="Nama jalan, RT/RW, nomor rumah, patokan..."></textarea>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="orderNote">Catatan (opsional)</label>
+              <textarea class="form-control" id="orderNote" rows="2" placeholder="Contoh: kurang pedas, tanpa seledri, extra kuah..."></textarea>
+            </div>
+
+            <!-- Ringkasan Harga -->
+            <div class="price-summary" id="priceSummary">
+              <div class="price-row">
+                <span>Subtotal</span>
+                <strong id="summarySubtotal">Rp0</strong>
+              </div>
+              <div class="price-row" id="ongkirRow">
+                <span>Ongkos Kirim</span>
+                <strong id="summaryOngkir">Rp0</strong>
+              </div>
+              <div class="price-row total-row">
+                <span>Total Bayar</span>
+                <strong id="summaryTotal">Rp0</strong>
+              </div>
+            </div>
+
+            <button class="btn btn-whatsapp btn-full" id="btnOrderWA">
+              <i class="fab fa-whatsapp"></i> Pesan via WhatsApp
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== AREA DELIVERY ===== -->
+    <section id="area-delivery" class="section section-warm">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge">📍 Jangkauan Delivery</span>
+          <h2>Area yang Kami Layani</h2>
+          <p>Kami melayani delivery ke area RT/RW sekitar toko. Cek apakah lokasimu terjangkau!</p>
+        </div>
+        <div class="area-table-wrap">
+          <table class="area-table">
+            <thead>
+              <tr>
+                <th>Area (RT/RW)</th>
+                <th>Ongkos Kirim</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="areaTableBody">
+              <!-- Dirender oleh JS -->
+            </tbody>
+          </table>
+        </div>
+        <p class="area-note">
+          <i class="fas fa-info-circle"></i>
+          Area tidak ada dalam daftar? Hubungi kami langsung untuk konfirmasi.
+          <a href="https://wa.me/6281234567890?text=Halo%2C%20saya%20ingin%20tanya%20area%20delivery" target="_blank">
+            <i class="fab fa-whatsapp"></i> Chat WhatsApp
+          </a>
+        </p>
+      </div>
+    </section>
+
+    <!-- ===== BOOKING MEJA ===== -->
+    <section id="booking" class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge">🪑 Dine In</span>
+          <h2>Booking Meja</h2>
+          <p>Mau makan di tempat? Booking dulu biar mejamu sudah siap waktu kamu datang!</p>
+        </div>
+
+        <div class="booking-layout">
+          <!-- Form Booking -->
+          <div class="booking-form-panel">
+            <div class="form-group">
+              <label class="form-label" for="bookName">Nama <span class="required">*</span></label>
+              <input type="text" class="form-control" id="bookName" placeholder="Nama lengkap kamu" />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="bookPhone">No. HP / WhatsApp <span class="required">*</span></label>
+              <input type="tel" class="form-control" id="bookPhone" placeholder="08xxxxxxxxxx" />
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="bookDate">Tanggal <span class="required">*</span></label>
+                <input type="date" class="form-control" id="bookDate" />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="bookTime">Jam <span class="required">*</span></label>
+                <input type="time" class="form-control" id="bookTime" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="bookPeople">Jumlah Orang <span class="required">*</span></label>
+              <select class="form-control" id="bookPeople">
+                <option value="">Pilih jumlah</option>
+                <option value="1">1 orang</option>
+                <option value="2">2 orang</option>
+                <option value="3">3 orang</option>
+                <option value="4">4 orang</option>
+                <option value="5">5 orang</option>
+                <option value="6">6 orang</option>
+                <option value="7-10">7–10 orang</option>
+                <option value=">10">Lebih dari 10 orang</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="bookNote">Catatan (opsional)</label>
+              <textarea class="form-control" id="bookNote" rows="2" placeholder="Contoh: ada yang berulang tahun, butuh kursi tinggi, dll."></textarea>
+            </div>
+
+            <!-- Estimasi menu booking -->
+            <div class="booking-menu-toggle">
+              <button class="btn btn-ghost btn-sm" id="toggleBookingMenu">
+                <i class="fas fa-utensils"></i> Tambahkan Estimasi Menu (opsional)
+                <i class="fas fa-chevron-down" id="toggleMenuIcon"></i>
+              </button>
+            </div>
+            <div class="booking-menu-section" id="bookingMenuSection" style="display:none;">
+              <p class="booking-menu-hint">Pilih menu yang ingin kamu pesan saat datang (opsional — untuk membantu kami menyiapkan).</p>
+              <div class="menu-tabs menu-tabs-sm" id="bookingMenuTabs">
+                <button class="tab-btn active" data-bcat="makanan">🍲 Makanan</button>
+                <button class="tab-btn" data-bcat="tambahan">➕ Tambahan</button>
+                <button class="tab-btn" data-bcat="minuman">🥤 Minuman</button>
+              </div>
+              <div class="menu-grid menu-grid-sm" id="bookingMenuGrid"></div>
+              <!-- Ringkasan estimasi booking -->
+              <div class="booking-summary" id="bookingSummary" style="display:none;">
+                <div class="price-row">
+                  <span>Total Estimasi</span>
+                  <strong id="bookingTotal">Rp0</strong>
+                </div>
+              </div>
+            </div>
+
+            <button class="btn btn-whatsapp btn-full" id="btnBookingWA">
+              <i class="fab fa-whatsapp"></i> Booking Meja via WhatsApp
+            </button>
+          </div>
+
+          <!-- Info Panel -->
+          <div class="booking-info-panel">
+            <div class="info-card">
+              <h3><i class="fas fa-clock"></i> Jam Operasional</h3>
+              <ul>
+                <li><span>Senin – Jumat</span><strong>07.00 – 21.00</strong></li>
+                <li><span>Sabtu – Minggu</span><strong>07.00 – 22.00</strong></li>
+              </ul>
+            </div>
+            <div class="info-card">
+              <h3><i class="fas fa-chair"></i> Info Tempat</h3>
+              <ul>
+                <li><span>Kapasitas</span><strong>±40 kursi</strong></li>
+                <li><span>Parkir</span><strong>Tersedia (motor &amp; mobil)</strong></li>
+                <li><span>WiFi</span><strong>Tersedia</strong></li>
+                <li><span>Bayar</span><strong>Cash / Transfer</strong></li>
+              </ul>
+            </div>
+            <div class="info-card info-card-note">
+              <i class="fas fa-info-circle"></i>
+              <p>Booking via WhatsApp langsung terkonfirmasi oleh tim kami. Harap booking minimal <strong>1 jam sebelumnya</strong> untuk memastikan ketersediaan meja.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== LOKASI & KONTAK ===== -->
+    <section id="lokasi" class="section section-warm">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge">📍 Temukan Kami</span>
+          <h2>Lokasi &amp; Kontak</h2>
+          <p>Mampir langsung atau hubungi kami lewat media sosial.</p>
+        </div>
+        <div class="location-layout">
+          <div class="map-panel">
+            <div class="map-embed">
+              <!-- Google Maps embed (koordinat samaran — ganti dengan lokasi asli) -->
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3954.999!2d111.42!3d-6.97!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNsKwNTgnMDAuMCJTIDExMcKwMjUnMTIuMCJF!5e0!3m2!1sid!2sid!4v1700000000000!5m2!1sid!2sid"
+                width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade" title="Lokasi Bakso Mantap Jaya">
+              </iframe>
+            </div>
+          </div>
+          <div class="contact-panel">
+            <div class="contact-item">
+              <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+              <div>
+                <strong>Alamat</strong>
+                <p>Jl. Contoh Raya No 1, Blora<br /><em>(samaran — ganti dengan alamat asli)</em></p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon"><i class="fas fa-clock"></i></div>
+              <div>
+                <strong>Jam Buka</strong>
+                <p>Senin–Jumat: 07.00–21.00<br />Sabtu–Minggu: 07.00–22.00</p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon contact-wa"><i class="fab fa-whatsapp"></i></div>
+              <div>
+                <strong>WhatsApp</strong>
+                <a href="https://wa.me/6281234567890" target="_blank">0812-3456-7890</a>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon contact-ig"><i class="fab fa-instagram"></i></div>
+              <div>
+                <strong>Instagram</strong>
+                <a href="https://instagram.com/baksomantapjaya" target="_blank">@baksomantapjaya</a>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon contact-tiktok"><i class="fab fa-tiktok"></i></div>
+              <div>
+                <strong>TikTok</strong>
+                <a href="https://tiktok.com/@bakso.mantap.jaya" target="_blank">@bakso.mantap.jaya</a>
+              </div>
+            </div>
+            <div class="social-buttons">
+              <a href="https://wa.me/6281234567890" target="_blank" class="btn btn-whatsapp">
+                <i class="fab fa-whatsapp"></i> Chat WhatsApp
+              </a>
+              <a href="https://instagram.com/baksomantapjaya" target="_blank" class="btn btn-instagram">
+                <i class="fab fa-instagram"></i> Instagram
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer id="footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <span class="brand-icon">🍜</span>
+        <span class="brand-text">Bakso <strong>Mantap Jaya</strong></span>
+        <p>Bakso &amp; Mie Ayam Asli — Cita rasa rumahan yang selalu bikin kangen.</p>
+        <p class="footer-addr"><i class="fas fa-map-marker-alt"></i> Jl. Contoh Raya No 1, Blora</p>
+      </div>
+      <div class="footer-links">
+        <h4>Navigasi</h4>
+        <a href="#menu">Menu</a>
+        <a href="#galeri">Galeri</a>
+        <a href="#keranjang">Pesan Delivery</a>
+        <a href="#booking">Booking Meja</a>
+        <a href="#area-delivery">Area Delivery</a>
+        <a href="#lokasi">Lokasi</a>
+      </div>
+      <div class="footer-social">
+        <h4>Ikuti Kami</h4>
+        <a href="https://wa.me/6281234567890" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+        <a href="https://instagram.com/baksomantapjaya" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+        <a href="https://tiktok.com/@bakso.mantap.jaya" target="_blank"><i class="fab fa-tiktok"></i> TikTok</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Bakso Mantap Jaya. Semua hak dilindungi.</p>
+      <p class="footer-note">⚠️ Data bisnis di website ini masih <strong>samaran/demo</strong>. Ganti dengan data asli sebelum dirilis ke publik.</p>
+    </div>
+  </footer>
+
+  <!-- ===== FLOATING CART BUTTON (mobile) ===== -->
+  <div class="float-cart" id="floatCart">
+    <button onclick="document.getElementById('keranjang').scrollIntoView({behavior:'smooth'})">
+      <i class="fas fa-shopping-cart"></i>
+      <span id="floatCartBadge">0</span>
+    </button>
+  </div>
+
+  <!-- ===== TOAST NOTIFICATION ===== -->
+  <div class="toast" id="toast">
+    <i class="fas fa-check-circle"></i>
+    <span id="toastMsg">Item ditambahkan ke keranjang!</span>
+  </div>
+
+  <!-- Main JS -->
+  <script src="js/data.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/menu.js"></script>
+  <script src="js/gallery.js"></script>
+  <script src="js/booking.js"></script>
+  <script src="js/checkout.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
